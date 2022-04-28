@@ -19,6 +19,8 @@
 		<input type="submit" value="Create New Invoice"><br></form>
 		<form action="viewInvoice.jsp" method="post">
 		<input type="submit" value="View All Invoices"><br></form>
+		<form action="viewEditInvoice.jsp" method="post">
+		<input type="submit" value="Edit an Invoice"><br></form>
 		<form action="addPayment.jsp" method="post">
 		<input type="submit" value="Add Invoice Payment"><br></form>
 		<br>
