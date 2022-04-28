@@ -8,11 +8,11 @@
 </head>
 <body>
 <h1>Total Expense Report</h1>
+<a href="mainPage.jsp"> back to menu</a><br><br>
 <form action="expenseReport.jsp" method="post">
 		<label>Enter Start Date: <input type="text" name=startDt></label><br>
 		<label>Enter End Date: <input type="text" name=endDate></label><br>
 		<input type="submit" value="Generate Report">
 	</form>
-<form><input type = "button" value = "Go back!" onclick = "history.go(-1)"></form>
 </body>
 </html>

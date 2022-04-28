@@ -5,10 +5,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Unpaid Invoice</title>
+<title>Generate Unpaid Invoice Report</title>
 </head>
 <body>
-<h1>View Unpaid Invoices</h1>
+<h1>Generate Unpaid Invoice Report</h1>
 <body>
 <a href="mainPage.jsp"> back to menu</a><br><br>
 <form method="POST" action="unpaidInvoiceList.jsp">

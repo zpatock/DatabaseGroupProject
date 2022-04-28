@@ -8,7 +8,7 @@
 <title>Services</title>
 </head>
 <body>
-<h1>Customers</h1>
+<h1>Services</h1>
 <a href="mainPage.jsp"> back to menu</a><br><br>
 <table border="1">
 		<thead>

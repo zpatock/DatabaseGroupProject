@@ -43,11 +43,12 @@
 </td>
 </tr>
 </table>
+</form>
 <form action="MainPage.jsp">
 <input type="submit" value="Save">
 </form>
 
-<form method="POST" action="MainPage.jsp">
+<form method="POST" action="mainPage.jsp">
 <input type="submit" value="Cancel">
 </form>
 
