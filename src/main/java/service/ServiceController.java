@@ -53,4 +53,12 @@ public class ServiceController {
 		    System.out.println("***********************************************************************************");
 		    preparedStmt.close();
 		}
+	   
+	   public ResultSet searchService(String searchString) throws SQLException {
+		   
+		   String queryString = "SELECT * FROM Team09_SERVICE WHERE service_type LIKE '%"+searchString+"%'";
+		   Statement stmt = myConnection.createStatement();
+		   ResultSet rs = stmt.executeQuery(queryString);
+		   return rs;
+	   }
 }

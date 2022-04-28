@@ -16,7 +16,7 @@ int custNum = Integer.valueOf(request.getParameter("custNum"));
 InvoiceController IC = new InvoiceController();
 IC.insertInvoice(invNumber, invDate, total, outBal, custNum);
 
-response.sendRedirect("MainPage.jsp");
+response.sendRedirect("mainPage.jsp");
 
 
 

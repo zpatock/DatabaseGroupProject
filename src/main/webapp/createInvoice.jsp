@@ -44,7 +44,7 @@
 </tr>
 </table>
 </form>
-<form action="MainPage.jsp">
+<form action="mainPage.jsp">
 <input type="submit" value="Save">
 </form>
 
