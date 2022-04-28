@@ -1,7 +1,7 @@
 <%@ page import="customer.*,java.util.*, java.sql.*"%>
 <html>
 <head>
-<title>View All Customers</title>
+<title>View Search Results</title>
 <style>
 .searchbox {
 float: left;}
@@ -45,7 +45,7 @@ background: blue;}</style>
 			</thead>
 <%
 CustomerController cc = new CustomerController();
-ResultSet rs = cc.getAllCustomers();
+ResultSet rs = cc.searchCustomer(request.getParameter("searchString"));
 while (rs.next()){
 	%>
 	<tr>

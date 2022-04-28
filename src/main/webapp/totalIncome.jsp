@@ -7,12 +7,12 @@
 <title>Generate Total Income Report</title>
 </head>
 <body>
+<a href="mainPage.jsp"> back to menu</a><br><br>
 <h1>Generate Total Income Report</h1>
 <form action="incomeReport.jsp" method="post">
 		<label>Enter Start Date: <input type="text" name=startDt></label><br>
 		<label>Enter End Date: <input type="text" name=endDate></label><br>
 		<input type="submit" value="Generate Report">
 	</form>
-<form><input type = "button" value = "Go back!" onclick = "history.go(-1)"></form>
 </body>
 </html>

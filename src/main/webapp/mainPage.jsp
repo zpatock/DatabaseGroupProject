@@ -44,8 +44,8 @@
 		<form action="totalIncome.jsp" method="post">
 		<input type="submit" value="Generate Total Income Report"><br></form>
 		<form action="unpaidInvoice.jsp" method="post">
-		<input type="submit" value="View All Unpaid Invoices"><br></form>
+		<input type="submit" value="View Unpaid Invoices"><br></form>
 		<form action="paidInvoice.jsp" method="post">
-		<input type="submit" value="View All Paid Invoices"><br></form>
+		<input type="submit" value="View Paid Invoices"><br></form>
 </body>
 </html>

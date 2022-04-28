@@ -82,7 +82,7 @@ public class InvoiceController {
 	
 	public ResultSet paidInvoice(String startDate, String endDate) throws SQLException{
 		System.out.println(Date.valueOf(startDate));
-	    String queryString = "SELECT i.invoice_date, i.total, i.outstanding_balance, c.last, c.first, c.phone_number, c.email FROM Team09_INVOICE i, TEAM09_CUSTOMER c WHERE i.cust_num = c.cust_num AND i.OUTSTANDING_BALANCE <> 0 AND INVOICE_DATE BETWEEN TO_DATE('"+Date.valueOf(startDate)+"', 'YYYY-MM-DD') and TO_DATE('"+Date.valueOf(endDate)+"', 'YYYY-MM-DD')";
+	    String queryString = "SELECT i.invoice_date, i.total, i.outstanding_balance, c.last, c.first, c.phone_number, c.email FROM Team09_INVOICE i, TEAM09_CUSTOMER c WHERE i.cust_num = c.cust_num AND i.OUTSTANDING_BALANCE <> 0 AND INVOICE_DATE BETWEEN TO_DATE('"+java.sql.Date.valueOf(startDate)+"', 'YYYY-MM-DD') and TO_DATE('"+java.sql.Date.valueOf(endDate)+"', 'YYYY-MM-DD')";
 	    Statement stmt = myConnection.createStatement();
 	    ResultSet rs = stmt.executeQuery(queryString);
 		return rs;
@@ -95,7 +95,7 @@ public class InvoiceController {
 	
 	public ResultSet unpaidInvoice(String startDate, String endDate) throws SQLException{
 		System.out.println(Date.valueOf(startDate));
-		   String queryString = "SELECT i.invoice_date, i.total, i.outstanding_balance, c.last, c.first, c.phone_number, c.email FROM Team09_INVOICE i, TEAM09_CUSTOMER c WHERE i.cust_num = c.cust_num AND i.OUTSTANDING_BALANCE <> 0 AND INVOICE_DATE BETWEEN TO_DATE('"+Date.valueOf(startDate)+"', 'DD-MON-YY') and TO_DATE('"+Date.valueOf(endDate)+"', 'DD-MON-YY')";
+		   String queryString = "SELECT i.invoice_date, i.total, i.outstanding_balance, c.last, c.first, c.phone_number, c.email FROM Team09_INVOICE i, TEAM09_CUSTOMER c WHERE i.cust_num = c.cust_num AND i.OUTSTANDING_BALANCE <> 0 AND INVOICE_DATE BETWEEN TO_DATE('"+java.sql.Date.valueOf(startDate)+"', 'YYYY-MM-DD') and TO_DATE('"+java.sql.Date.valueOf(endDate)+"', 'YYYY-MM-DD')";
 		   Statement stmt = myConnection.createStatement();
 		   ResultSet rs = stmt.executeQuery(queryString);
 		   return rs;
