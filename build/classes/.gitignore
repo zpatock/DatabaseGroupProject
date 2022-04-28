@@ -2,3 +2,4 @@
 /expense/
 /invoice/
 /service/
+*.class
