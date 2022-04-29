@@ -65,6 +65,30 @@ public class InvoiceController {
 	    preparedStmt.close();
 	  }
 	
+	public void updateInvoice(int invNum, String date, double total, double outstandingBal, int custNum) throws SQLException{
+	    //A string to hold the SQL statement....Notice the use of ? in prepared statements
+	    String queryString = "UPDATE TEAM09_INVOICE SET INVOICE_NUM = ?, INVOICE_DATE =  ?, TOTAL = ?, outstanding_balance = ?, cust_num = ? WHERE INVOICE_NUM = ? AND CUST_NUM = ?";
+	    //Create a prepared statement using the connection object...must specify an SQL string as an argument
+	    preparedStmt = myConnection.prepareStatement(queryString);
+	    //Clear all parameters
+	    preparedStmt.clearParameters();
+	    //Specify values for all ? in the query string
+	    preparedStmt.setInt(1,invNum);
+	    preparedStmt.setDate(2,java.sql.Date.valueOf(date));
+	    preparedStmt.setDouble(3,total);
+	    preparedStmt.setDouble(4,outstandingBal);
+	    preparedStmt.setInt(5,custNum);
+	    preparedStmt.setInt(6,invNum);
+	    preparedStmt.setInt(7, custNum);
+	    
+	    
+	    int returns = preparedStmt.executeUpdate();
+	    System.out.println(queryString);
+	    System.out.println("Rows affected " + returns);
+	    System.out.println("***********************************************************************************");
+	    preparedStmt.close();
+	  }
+	
 	public void totalInvoice(String startDate, String endDate) throws SQLException{
 		   String queryString = "SELECT Team09_Invoice_Total_Func((?), (?)) FROM dual";
 		   PreparedStatement preparedStmt = myConnection.prepareStatement(queryString);

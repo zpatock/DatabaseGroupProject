@@ -8,7 +8,7 @@
 </head>
 <h1>Create an Invoice</h1>
 <body>
-<a href="MainPage.jsp"> back to menu</a><br><br>
+<a href="mainPage.jsp"> back to menu</a><br><br>
 <form method="POST" action="createInvoice_action.jsp">
 <table style="text-align: left; width: 400px; height: 150px" border="1">
 <col style = "width:50%">
@@ -43,10 +43,7 @@
 </td>
 </tr>
 </table>
-<<<<<<< HEAD
-=======
-</form>
->>>>>>> aa8154bef21cf9ab27592706102f1c63c274f36e
+
 <form action="mainPage.jsp">
 <input type="submit" value="Save">
 </form>

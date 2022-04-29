@@ -9,8 +9,16 @@ String firstname = u.getFirstName();
 String lastname = u.getLastName();
 String password = u.getPassword();
 */
+//System.out.println(request.getParameterNames());
 InvoiceController ic = new InvoiceController();
-ResultSet rs = ic.getInvoice( , );
+//ResultSet rs = ic.getInvoice( , );
+	int invNumber = Integer.valueOf(request.getParameter("invNum"));
+	String invDate = request.getParameter("invDate");
+	double total = Integer.valueOf(request.getParameter("total"));
+	double outBal = Integer.valueOf(request.getParameter("outBal"));
+	int custNum = Integer.valueOf(request.getParameter("custNum"));
+	//System.out.println(invNumber);
+	//System.out.println(custNum);
  %>
 
 
@@ -22,47 +30,49 @@ ResultSet rs = ic.getInvoice( , );
 </head>
 <h1>Edit Invoice</h1>
 <body>
-<a href="Menu.jsp"> back to menu</a><br><br>
-<form method="POST" action="EditUserProfile_action.jsp">
+<a href="mainPage.jsp"> back to menu</a><br><br>
+<form method="POST" action="viewEditInvoice_action.jsp">
 <table style="text-align: left; width: 400px; height: 150px" border="1">
 <col style = "width:50%">
 <col style = "width:50%">
 <tr>
 <td>Invoice Number</td>
 <td>
-
+<%=invNumber%>
+<input type = "hidden" name = "invNum" value="<%=invNumber%>"">
 </td>
 </tr>
 <tr>
 <td>Invoice Date</td>
 <td>
-<input type = "text" name = "lastname" value="">
+<input type = "text" name = "invDate" value="<%=invDate%>"">
 </td>
 </tr>
 <tr>
 <td>Total</td>
 <td> 
-<input type = "text" name = "lastname" value="">
+<input type = "text" name = "total" value="<%=total %>"">
 </td>
 </tr>
 <tr>
 <td>Outstanding Balance</td>
 <td>
-<input type = "text"  name = "outBal" value="">
+<input type = "text"  name = "outBal" value="<%=outBal%>">
 </td>
 </tr>
 <tr>
 <td>Customer Number</td>
 <td>
-
+<%=custNum%>
+<input type = "hidden" name = "custNum" value="<%=custNum%>"">
 </td>
 </tr>
 </table>
-<form action="ViewProfile.jsp">
+<form action="viewInvoice.jsp">
 <input type="submit" value="Save">
 </form>
 
-<form method="POST" action="Menu.jsp">
+<form method="POST" action="mainPage.jsp">
 <input type="submit" value="Cancel">
 </form>
 

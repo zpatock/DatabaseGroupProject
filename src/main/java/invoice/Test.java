@@ -9,10 +9,10 @@ public class Test {
 		// TODO Auto-generated method stub
 
 		
-		//InvoiceController IC = new InvoiceController();
+		InvoiceController IC = new InvoiceController();
 		//Date insDate = new Date(2022-01-22);
-		//IC.insertInvoice(3,"2022-01-22", 25, 34, 15);
-		
+		IC.updateInvoice(14,"2022-01-22", 25, 34, 1);
+		/*
 		CustomerController cc = new CustomerController();
 		ResultSet rs = cc.getAllCustomers();
 		while (rs.next()){
@@ -20,6 +20,6 @@ public class Test {
 	          + "\t" + rs.getString("address_line_2") + "\t" + rs.getString("city") + "\t" + rs.getString("state") + "\t" + rs.getString("zip")
 	          + "\t" + rs.getString("phone_number") + "\t" + rs.getString("email"));
 	   }
-		
+		*/
 	}
 }
