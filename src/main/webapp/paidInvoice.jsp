@@ -5,10 +5,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Paid Invoice</title>
+<title>Generate Paid Invoice Report</title>
 </head>
 <body>
-<h1>Generate Paid Invoices Report</h1>
+<h1>Generate Paid Invoice Report</h1>
 <body>
 <a href="mainPage.jsp"> back to menu</a><br><br>
 <form method="POST" action="paidInvoiceList.jsp">
@@ -27,7 +27,6 @@
 </td>
 </tr>
 </table>
-</form>
 <form action="paidInvoiceList.jsp">
 <input type="submit" name = "Submit" value="Submit">
 </form>

@@ -1,17 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-    import = "invoice.*, java.sql.*"%>
+    import = "expense.*, java.sql.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Generate Unpaid Invoice Report</title>
+<title>Generate Total Expense Report</title>
 </head>
 <body>
-<h1>Generate Unpaid Invoice Report</h1>
-<body>
+<h1>Generate Total Expense Report</h1>
 <a href="mainPage.jsp"> back to menu</a><br><br>
-<form method="POST" action="unpaidInvoiceList.jsp">
+<form method="POST" action="paidInvoiceList.jsp">
 <table style="text-align: left; width: 400px; height: 150px" border="1">
 <col style = "width:50%">
 <col style = "width:50%">
@@ -27,11 +26,26 @@
 </td>
 </tr>
 </table>
-<form action="unpaidInvoiceList.jsp">
+</form>
+<form action="totalExpenseReport.jsp">
 <input type="submit" name = "Submit" value="Submit">
 </form>
 <form method="POST" action="mainPage.jsp">
 <input type="submit" name = "cancel" value="Cancel">
 </form>
+<%
+
+String startDate = request.getParameter("startDate");
+String endDate = request.getParameter("endDate");
+
+ExpenseController ec = new ExpenseController();
+ResultSet rs = ec.totalExpense(startDate, endDate);
+
+while (rs.next()) {
+	System.out.println("Total Expense: " + rs.getString(1));
+}
+
+
+%>
 </body>
 </html>

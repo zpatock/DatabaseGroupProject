@@ -30,16 +30,16 @@ background: blue;}</style>
 		<thead>
 			<tr>
 				<th>Customer Number</th>
-				<th style = "width: 10%">Last</th>
-				<th style = "width: 10%">First</th>
-				<th style = "width: 10%">Company</th>
-				<th style = "width: 10%">Address Line 1</th>
-				<th style = "width: 10%">Address Line 2</th>
-				<th style = "width: 10%">City</th>
-				<th style = "width: 10%">State</th>
-				<th style = "width: 10%">ZIP</th>
-				<th style = "width: 10%">Phone</th>
-				<th style = "width: 10%">Email</th>
+				<th>Last</th>
+				<th>First</th>
+				<th>Company</th>
+				<th>Address Line 1</th>
+				<th>Address Line 2</th>
+				<th>City</th>
+				<th>State</th>
+				<th>ZIP</th>
+				<th>Phone</th>
+				<th>Email</th>
 				<th></th>
 			</tr>
 			</thead>
@@ -49,17 +49,18 @@ ResultSet rs = cc.getAllCustomers();
 while (rs.next()){
 	%>
 	<tr>
-		<td><%= rs.getString("cust_num") + "\t" %></td>
-		<td style = "width: 10%"><input type = "text"  name = "last" value="<%= rs.getString("last") + "\t" %>"></td>
-		<td><input type = "text"  name = "first" value="<%= rs.getString("first") + "\t" %>"></td>
-		<td><input type = "text"  name = "company" value="<%= rs.getString("company") + "\t" %>"></td>
-		<td><input type = "text"  name = "adr1" value="<%= rs.getString("address_line_1") + "\t" %>"></td>
-		<td><input type = "text"  name = "adr2" value="<%= rs.getString("address_line_2") + "\t" %>"></td>
-		<td><input type = "text"  name = "city" value="<%= rs.getString("city") + "\t" %>"></td>
-		<td><input type = "text"  name = "state" value="<%= rs.getString("state") + "\t" %>"></td>
-		<td><input type = "text"  name = "zip" value=<%= rs.getString("zip") + "\t" %>></td>
-		<td><input type = "text"  name = "phone" value=<%= rs.getString("phone_number") + "\t" %>></td>
-		<td><input type = "text"  name = "email" value=<%= rs.getString("email") + "\t" %>></td>
+		<form method="POST" action="editCust.jsp">
+		<td><input type ="hidden" name ="custNum" value = "<%= rs.getString("cust_num") %>"></td>
+		<td><input type = "text"  name = "last" value="<%= rs.getString("last")%>"></td>
+		<td><input type = "text"  name = "first" value="<%= rs.getString("first") %>"></td>
+		<td><input type = "text"  name = "company" value="<%= rs.getString("company") %>"></td>
+		<td><input type = "text"  name = "adr1" value="<%= rs.getString("address_line_1")%>"></td>
+		<td><input type = "text"  name = "adr2" value="<%= rs.getString("address_line_2")%>"></td>
+		<td><input type = "text"  name = "city" value="<%= rs.getString("city")%>"></td>
+		<td><input type = "text"  name = "state" value="<%= rs.getString("state")%>"></td>
+		<td><input type = "text"  name = "zip" value="<%= rs.getString("zip")%>"></td>
+		<td><input type = "text"  name = "phone" value="<%= rs.getString("phone_number")%>"></td>
+		<td><input type = "text"  name = "email" value="<%= rs.getString("email")%>"></td>
 		<td><a href="editCust.jsp">Save</a></td>
 	</tr>
 	<%

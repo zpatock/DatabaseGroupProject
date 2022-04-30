@@ -23,19 +23,20 @@ public class ExpenseController {
 	                                               "csci.cscioraclerh7srv.ad.csbsju.edu","Team09", "team09");
 	  }
 
-	public void totalExpense(String startDate, String endDate) throws SQLException{
+	public ResultSet totalExpense(String startDate, String endDate) throws SQLException{
 		   String queryString = "SELECT Team09_Expenses_Total_Func((?), (?)) FROM dual";
 		   PreparedStatement preparedStmt = myConnection.prepareStatement(queryString);
 		   preparedStmt.clearParameters();
-		   preparedStmt.setString(1, startDate);
-		   preparedStmt.setString(2, endDate);
-		   ResultSet result = preparedStmt.executeQuery();
-		   if (result.next()){    
+		   preparedStmt.setDate(1, java.sql.Date.valueOf(startDate));
+		   preparedStmt.setDate(2, java.sql.Date.valueOf(endDate));
+		   ResultSet rs = preparedStmt.executeQuery();
+		   return rs;
+		   /*if (result.next()){    
 			      System.out.println("Total Expense: " + result.getString(1));
 			    }
 			    System.out.println("***********************************************************************************");
 			    result.close();
-			    preparedStmt.close();
+			    preparedStmt.close();*/
 			  } 
 	
 	public ResultSet getAllExpenses() throws SQLException{

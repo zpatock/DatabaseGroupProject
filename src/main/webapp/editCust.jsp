@@ -3,12 +3,20 @@
     
     import = "customer.*, java.sql.*"%>
 <%
-
+int custNum = Integer.valueOf(request.getParameter("custNum"));
+String last = request.getParameter("last");
+String first = request.getParameter("first");
+String company = request.getParameter("company");
+String adr1 = request.getParameter("adr1");
+String adr2 = request.getParameter("adr2");
+String city = request.getParameter("city");
+String state = request.getParameter("state");
+String zip = request.getParameter("zip");
+String phone = request.getParameter("phone");
+String email = request.getParameter("email");
+System.out.println(custNum + last + first + company + adr1 + adr2 + city + state + zip + phone + email);
 CustomerController cc = new CustomerController();
-cc.updateCustomer(custNum, request.getParameter("last"), request.getParameter("first"),
-		request.getParameter("company"), request.getParameter("adr1"), request.getParameter("adr2"),
-		request.getParameter("city"), request.getParameter("state"), request.getParameter("zip"),
-		request.getParameter("phone"), request.getParameter("email"));
+cc.updateCustomer(custNum, last, first,	company, adr1, adr2, city, state, zip, phone, email);
 
 response.sendRedirect("viewCust.jsp");
 

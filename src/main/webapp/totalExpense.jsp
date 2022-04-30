@@ -26,7 +26,7 @@
 </tr>
 </table>
 </form>
-<form action="paidInvoiceList.jsp">
+<form action="totalExpenseReport.jsp">
 <input type="submit" name = "Submit" value="Submit">
 </form>
 <form method="POST" action="mainPage.jsp">

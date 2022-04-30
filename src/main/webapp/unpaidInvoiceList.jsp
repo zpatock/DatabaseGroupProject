@@ -23,19 +23,21 @@
 			</tr>
 			</thead>
 <%
+String startDate = request.getParameter("startDate");
+String endDate = request.getParameter("endDate");
 InvoiceController ic = new InvoiceController();
-System.out.println(request.getParameter("startDate") + request.getParameter("endDate"));
-ResultSet rs = ic.unpaidInvoice(request.getParameter("startDate"), request.getParameter("endDate"));
+System.out.println(startDate + endDate);
+ResultSet rs = ic.unpaidInvoice(startDate, endDate);
 while (rs.next()){
 	%>
 	<tr>
-		<td><%= rs.getString("i.invoice_date") + "\t" %></td>
-		<td><%= rs.getString("i.total") + "\t" %></td>
-		<td><%= rs.getFloat("i.outstanding_balance") + "\t" %></td>
-		<td><%= rs.getString("c.last") + "\t" %></td>
-		<td><%= rs.getString("c.first") + "\t" %></td>
-		<td><%= rs.getString("c.phone_number") + "\t" %></td>
-		<td><%= rs.getString("c.email") + "\t" %></td>
+		<td><%= rs.getString("invoice_date")%></td>
+		<td><%= rs.getString("total")%></td>
+		<td><%= rs.getString("outstanding_balance")%></td>
+		<td><%= rs.getString("last")%></td>
+		<td><%= rs.getString("first")%></td>
+		<td><%= rs.getString("phone_number")%></td>
+		<td><%= rs.getString("email")%></td>
 	</tr>
 	<%
 }
