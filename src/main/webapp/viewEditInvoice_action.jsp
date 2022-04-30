@@ -5,8 +5,8 @@
 
 int invNumber = Integer.valueOf(request.getParameter("invNum"));
 String invDate = request.getParameter("invDate");
-double total = Integer.valueOf(request.getParameter("total"));
-double outBal = Integer.valueOf(request.getParameter("outBal"));
+double total = Double.parseDouble(request.getParameter("total"));
+double outBal = Double.parseDouble(request.getParameter("outBal"));
 int custNum = Integer.valueOf(request.getParameter("custNum")); 
 
 InvoiceController ic = new InvoiceController();

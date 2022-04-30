@@ -31,9 +31,9 @@
 		<label>EXPENSES<br></label>
 		<form action="newDesc.jsp" method="post">
 		<input type="submit" value="Create New Expense Description"><br></form>
-		<form action="viewExpenses.jsp" method="post">
+		<form action="viewExpense.jsp" method="post">
 		<input type="submit" value="View All Expenses"><br></form>
-		<form action="logExpense.jsp" method="post">
+		<form action="createExpense.jsp" method="post">
 		<input type="submit" value="Log New Expense"><br></form>
 		<br>
 		<label>GENERATE REPORTS<br></label>
