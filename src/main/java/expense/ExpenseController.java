@@ -24,7 +24,8 @@ public class ExpenseController {
 	  }
 
 	public ResultSet totalExpense(String startDate, String endDate) throws SQLException{
-		   String queryString = "SELECT Team09_Expenses_Total_Func((?), (?)) FROM dual";
+		   String queryString = "SELECT SUM(TOTAL) as tot FROM Team09_EXPENSES WHERE EXPENSE_DATE BETWEEN (?) and (?)";
+		   System.out.println(queryString);
 		   PreparedStatement preparedStmt = myConnection.prepareStatement(queryString);
 		   preparedStmt.clearParameters();
 		   preparedStmt.setDate(1, java.sql.Date.valueOf(startDate));

@@ -45,9 +45,9 @@ ResultSet rs = sc.getAllServices();
 while (rs.next()){
 	%>
 	<tr>
-		<td><%= rs.getString("service_type") + "\t" %></td>
-		<td><%= rs.getFloat("default_rate") + "\t" %></td>
-		<td><%= rs.getString("active") + "\t" %></td>
+		<td>"<%= rs.getString("service_type")%>"</td>
+		<td>"<%= rs.getFloat("default_rate")%>"</td>
+		<td>"<%= rs.getString("active")%>"</td>
 		<td><a href="editService.jsp">Save</a></td>
 	</tr>
 	<%

@@ -7,12 +7,29 @@
 <title>Generate Total Income Report</title>
 </head>
 <body>
-<a href="mainPage.jsp"> back to menu</a><br><br>
 <h1>Generate Total Income Report</h1>
-<form action="incomeReport.jsp" method="post">
-		<label>Enter Start Date: <input type="text" name=startDt></label><br>
-		<label>Enter End Date: <input type="text" name=endDate></label><br>
-		<input type="submit" value="Generate Report">
-	</form>
+<a href="mainPage.jsp"> back to menu</a><br><br>
+<form method="POST" action="totalIncomeReport.jsp">
+<table style="text-align: left; width: 400px; height: 150px" border="1">
+<col style = "width:50%">
+<col style = "width:50%">
+<tr>
+<td>Start Date</td>
+<td>
+<input type = "text" name = "startDate" value="">
+</td>
+</tr>
+<tr>
+<td>End Date</td><td>
+<input type = "text" name = "endDate" value="">
+</td>
+</tr>
+</table>
+<form action="totalIncomeReport.jsp">
+<input type="submit" name = "Submit" value="Submit">
+</form>
+<form method="POST" action="mainPage.jsp">
+<input type="submit" name = "cancel" value="Cancel">
+</form>
 </body>
 </html>

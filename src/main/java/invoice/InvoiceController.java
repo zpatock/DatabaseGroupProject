@@ -89,19 +89,14 @@ public class InvoiceController {
 	    preparedStmt.close();
 	  }
 	
-	public void totalInvoice(String startDate, String endDate) throws SQLException{
-		   String queryString = "SELECT Team09_Invoice_Total_Func((?), (?)) FROM dual";
+	public ResultSet totalInvoice(String startDate, String endDate) throws SQLException{
+		   String queryString = "SELECT SUM(TOTAL) as tot FROM Team09_INVOICE WHERE INVOICE_DATE BETWEEN (?) and (?)";
 		   PreparedStatement preparedStmt = myConnection.prepareStatement(queryString);
 		   preparedStmt.clearParameters();
-		   preparedStmt.setString(1, startDate);
-		   preparedStmt.setString(2, endDate);
-		   ResultSet result = preparedStmt.executeQuery();
-		   if (result.next()){    
-			      System.out.println("Total Income from Invoices: " + result.getString(1));
-			    }
-			    System.out.println("***********************************************************************************");
-			    result.close();
-			    preparedStmt.close();
+		   preparedStmt.setDate(1, java.sql.Date.valueOf(startDate));
+		   preparedStmt.setDate(2, java.sql.Date.valueOf(endDate));
+		   ResultSet rs = preparedStmt.executeQuery();
+		   return rs;
 			  } 
 	
 	public ResultSet paidInvoice(String startDate, String endDate) throws SQLException{
