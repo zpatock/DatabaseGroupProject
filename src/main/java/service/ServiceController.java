@@ -38,12 +38,12 @@ public class ServiceController {
 		   }*/
 	}
 	   
-	   public void updateService(int servNum, String type, float rate, int active) throws SQLException{
+	   public void updateService(int servNum, String type, double rate, int active) throws SQLException{
 		   String queryString = "UPDATE Team09_SERVICE SET SERVICE_TYPE = (?), DEFAULT_RATE = (?), ACTIVE = (?) WHERE SERVICE_NUM = (?)";
 		   PreparedStatement preparedStmt = myConnection.prepareStatement(queryString);
 		   preparedStmt.clearParameters();
 		   preparedStmt.setString(1, type);
-		   preparedStmt.setFloat(2, rate);
+		   preparedStmt.setDouble(2, rate);
 		   preparedStmt.setInt(3, active);
 		   preparedStmt.setInt(4, servNum);
 

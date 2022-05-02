@@ -21,15 +21,16 @@ cursor: pointer;}
 background: blue;}</style>
 </head>
 <body>
+<% CustomerController cc = new CustomerController();%>
 <div class="searchbox">
-<form><input type = "text" placeholder = "Search..." name="searchString">
-<button type = "submit" onclick = "searchCust.jsp">Submit</button></form></div><br><br><br>
-<h1>Customers</h1>
+<form action = "" method = "get">
+<input type = "text" class = "form-control" name = "searchString" placeholder = "Search...">
+</form></div>
+<br><br><br><h1>Customers</h1>
 <a href="mainPage.jsp"> back to menu</a><br><br>
 <table style = "width: 50px" border="1">
 		<thead>
 			<tr>
-				<th>Customer Number</th>
 				<th>Last</th>
 				<th>First</th>
 				<th>Company</th>
@@ -44,13 +45,19 @@ background: blue;}</style>
 			</tr>
 			</thead>
 <%
-CustomerController cc = new CustomerController();
-ResultSet rs = cc.getAllCustomers();
+String searchString = request.getParameter("searchString");
+ResultSet rs;
+if (searchString != null) {
+	rs = cc.searchCustomer(searchString);
+}
+else {
+	rs = cc.getAllCustomers();
+}
 while (rs.next()){
 	%>
 	<tr>
 		<form method="POST" action="editCust.jsp">
-		<td><input type ="hidden" name ="custNum" value = "<%= rs.getString("cust_num") %>"></td>
+		<input type ="hidden" name ="custNum" value = <%= rs.getString("cust_num") %>>
 		<td><input type = "text"  name = "last" value="<%= rs.getString("last")%>"></td>
 		<td><input type = "text"  name = "first" value="<%= rs.getString("first") %>"></td>
 		<td><input type = "text"  name = "company" value="<%= rs.getString("company") %>"></td>

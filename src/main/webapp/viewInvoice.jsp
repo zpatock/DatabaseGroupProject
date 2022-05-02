@@ -23,7 +23,7 @@
 InvoiceController ic = new InvoiceController();
 ResultSet rs = ic.getAllInvoices();
 while (rs.next()){
-
+	System.out.println("Current result" + rs.getString("cust_num"));
 	String invNum = rs.getString("invoice_num");
 	String custNum = rs.getString("cust_num");
 	String invDate = rs.getString("invoice_date");

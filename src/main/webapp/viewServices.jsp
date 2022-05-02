@@ -25,9 +25,11 @@ cursor: pointer;}
 background: blue;}</style>
 </head>
 <body>
+<%ServiceController sc = new ServiceController(); %>
 <div class="searchbox">
-<form><input type = "text" placeholder = "Search..." name="searchString">
-<button type = "submit" onclick = "searchService.jsp">Submit</button></form></div><br><br><br>
+<form action = "" method = "get">
+<input type = "text" class = "form-control" name = "searchString" placeholder = "Search...">
+</form></div><br><br><br>
 <h1>Services</h1>
 <a href="mainPage.jsp"> back to menu</a><br><br>
 <table border="1">
@@ -40,14 +42,22 @@ background: blue;}</style>
 			</tr>
 			</thead>
 <%
-ServiceController sc = new ServiceController();
-ResultSet rs = sc.getAllServices();
+String searchString = request.getParameter("searchString");
+ResultSet rs;
+if (searchString != null) {
+	rs = sc.searchService(searchString);
+}
+else {
+	rs = sc.getAllServices();
+}
+
 while (rs.next()){
 	%>
 	<tr>
-		<td>"<%= rs.getString("service_type")%>"</td>
-		<td>"<%= rs.getFloat("default_rate")%>"</td>
-		<td>"<%= rs.getString("active")%>"</td>
+		<input type ="hidden" name ="servNum" value = <%= rs.getString("service_num") %>>
+		<td><input type = "text"  name = "type" value="<%= rs.getString("service_type")%>"></td>
+		<td><input type = "text"  name = "rate" value="<%= rs.getString("default_rate")%>"></td>
+		<td><input type = "text"  name = "active" value="<%= rs.getString("active")%>"></td>
 		<td><a href="editService.jsp">Save</a></td>
 	</tr>
 	<%

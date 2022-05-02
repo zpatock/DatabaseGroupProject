@@ -18,9 +18,10 @@ public class InvoiceController {
 	  }
 	
 	public ResultSet getAllInvoices() throws SQLException{
-		   String queryString = "SELECT * FROM Team09_Invoice ORDER BY cust_num";
+		   String queryString = "SELECT * FROM TEAM09_INVOICE ORDER BY cust_num";
 		   Statement stmt = myConnection.createStatement();
 		   ResultSet rs = stmt.executeQuery(queryString);
+		   System.out.println(rs);
 		   //System.out.println("Last Name\tFirst Name\tCompany\tAddress Line 1\tAddress Line 2\tCity\tState\tZIP\tPhone\tEmail");
 	/*	   while (rs.next()){
 		          System.out.println(rs.getString("last") + "\t" + rs.getString("first") + "\t" + rs.getString("company") + "\t" + rs.getString("address_line_1")

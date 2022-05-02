@@ -33,7 +33,7 @@ public class CustomerController {
 	   
 	   public void updateCustomer(int custNum, String last, String first, String company, String adr1, String adr2, String city,
 			   String state, String zip, String phone, String email) throws SQLException{
-		   String queryString = "UPDATE Team09_CUSTOMER SET last = (?), first = (?), company = (?), address_line_1 = (?), address_line_2 = (?), city = (?), state = (?), zip = (?), phone_number = (?), email = (?) WHERE CUST_NUM = (?)";
+		   String queryString = "UPDATE Team09_CUSTOMER SET last = ?, first = ?, company = ?, address_line_1 = ?, address_line_2 = ?, city = ?, state = ?, zip = ?, phone_number = ?, email = ? WHERE CUST_NUM = ?";
 		   PreparedStatement preparedStmt = myConnection.prepareStatement(queryString);
 		   preparedStmt.clearParameters();
 		   preparedStmt.setString(1, last);
@@ -56,7 +56,13 @@ public class CustomerController {
 	   
 	   public ResultSet searchCustomer(String searchString) throws SQLException {
 		   
-		   String queryString = "SELECT * FROM Team09_CUSTOMER WHERE last LIKE '%"+searchString+"%' OR first LIKE '%"+searchString+"%' OR company LIKE '%"+searchString+"%' OR address_line_1 LIKE '%"+searchString+"%' OR address_line_2 LIKE '%"+searchString+"%' OR city LIKE '%"+searchString+"%' OR state LIKE '%"+searchString+"%' OR zip LIKE '%"+searchString+"%' OR phone_number LIKE '%"+searchString+"%' OR email LIKE '%"+searchString+"%'";
+		   String queryString = "SELECT * FROM Team09_CUSTOMER WHERE last LIKE '%"+searchString+"%' "
+		   		+ "OR first LIKE '%"+searchString+"%' OR company LIKE '%"+searchString+"%' OR "
+		   		+ "address_line_1 LIKE '%"+searchString+"%' OR address_line_2 LIKE '%"+searchString+"%' "
+		   		+ "OR city LIKE '%"+searchString+"%' OR state LIKE '%"+searchString+"%' "
+		   		+ "OR zip LIKE '%"+searchString+"%' OR phone_number LIKE '%"+searchString+"%' "
+		   		+ "OR email LIKE '%"+searchString+"%'";
+		   System.out.println(queryString);
 		   Statement stmt = myConnection.createStatement();
 		   ResultSet rs = stmt.executeQuery(queryString);
 		   return rs;

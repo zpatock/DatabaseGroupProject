@@ -48,7 +48,7 @@ ResultSet rs = ic.totalInvoice(startDate, endDate);
 
 while (rs.next()) { %>
 	<tr>
-	<td>"<%= rs.getString("tot")%>"</td>
+	<td><%= rs.getString("tot")%></td>
 </tr>
 	<%
 }
