@@ -4,23 +4,23 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Create an Invoice</title>
+<title>Create a Payment</title>
 </head>
-<h1>Create an Invoice</h1>
+<h1>Create a Payment</h1>
 <body>
 <a href="mainPage.jsp"> back to menu</a><br><br>
-<form method="POST" action="createInvoice_action.jsp">
+<form method="POST" action="createPaid_action.jsp">
 <table style="text-align: left; width: 400px; height: 150px" border="1">
 <col style = "width:50%">
 <col style = "width:50%">
-<td>Invoice Date</td><td>
-<input type = "text" name = "invDate" value="">
+<td>Invoice Number</td><td>
+<input type = "text" name = "invNum" value="">
 </td>
 </tr>
 <tr>
-<td>Total</td>
+<td>Payment Date</td>
 <td>
-<input type = "text"  name = "total" value="">
+<input type = "text"  name = "payDate" value="">
 </td>
 </tr>
 <tr>
@@ -30,9 +30,9 @@
 </td>
 </tr>
 <tr>
-<td> Customer Number </td>
+<td>Amount Paid</td>
 <td>
-<input type = "text"  name = "custNum" value="">
+<input type = "text"  name = "amtPaid" value="">
 </td>
 </tr>
 </table>

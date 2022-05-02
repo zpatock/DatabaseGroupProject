@@ -11,7 +11,8 @@ public class Test {
 		
 		InvoiceController IC = new InvoiceController();
 		//Date insDate = new Date(2022-01-22);
-		IC.updateInvoice(14,"2022-01-22", 25, 34, 1);
+		IC.insertInvoice("2022-01-22", 25, 34, 1);
+		
 		/*
 		CustomerController cc = new CustomerController();
 		ResultSet rs = cc.getAllCustomers();

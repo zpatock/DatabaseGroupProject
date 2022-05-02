@@ -44,19 +44,20 @@ public class InvoiceController {
 		   return rs;
 		}
 	 
-	public void insertInvoice(int invNum, String date, double total, double outstandingBal, int custNum) throws SQLException{
+	public void insertInvoice(String date, double total, double outstandingBal, int custNum) throws SQLException{
 	    //A string to hold the SQL statement....Notice the use of ? in prepared statements
-	    String queryString = "INSERT into TEAM09.TEAM09_INVOICE values(?,?,?,?,?)";
+	    String queryString = "INSERT into TEAM09.TEAM09_INVOICE values(invoice_auto_incr.nextval,?,?,?,?)";
 	    //Create a prepared statement using the connection object...must specify an SQL string as an argument
 	    preparedStmt = myConnection.prepareStatement(queryString);
 	    //Clear all parameters
 	    preparedStmt.clearParameters();
+	    
 	    //Specify values for all ? in the query string
-	    preparedStmt.setInt(1,invNum);
-	    preparedStmt.setDate(2,java.sql.Date.valueOf(date));
-	    preparedStmt.setDouble(3,total);
-	    preparedStmt.setDouble(4,outstandingBal);
-	    preparedStmt.setInt(5,custNum);
+	    //preparedStmt.setString(1,"invoice_auto_incr.nextval");
+	    preparedStmt.setDate(1,java.sql.Date.valueOf(date));
+	    preparedStmt.setDouble(2,total);
+	    preparedStmt.setDouble(3,outstandingBal);
+	    preparedStmt.setInt(4,custNum);
 	    
 	    
 	    int returns = preparedStmt.executeUpdate();
