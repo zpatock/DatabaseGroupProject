@@ -19,8 +19,10 @@
 		<input type="submit" value="Create New Invoice"><br></form>
 		<form action="viewInvoice.jsp" method="post">
 		<input type="submit" value="View All Invoices"><br></form>
-		<form action="addPayment.jsp" method="post">
+		<form action="createPaid.jsp" method="post">
 		<input type="submit" value="Add Invoice Payment"><br></form>
+		<form action="checkPaymentsStatus.jsp" method="post">
+		<input type="submit" value="Check the Status of Current Payments"><br></form>
 		<br>
 		<label>SERVICE<br></label>
 		<form action="createService.jsp" method="post">

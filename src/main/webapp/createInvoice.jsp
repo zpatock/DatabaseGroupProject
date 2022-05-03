@@ -6,8 +6,8 @@
 <meta charset="UTF-8">
 <title>Create an Invoice</title>
 </head>
-<h1>Create an Invoice</h1>
 <body>
+<h1>Create an Invoice</h1>
 <a href="mainPage.jsp"> back to menu</a><br><br>
 <form method="POST" action="createInvoice_action.jsp">
 <table style="text-align: left; width: 400px; height: 150px" border="1">

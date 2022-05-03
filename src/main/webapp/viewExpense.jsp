@@ -50,7 +50,6 @@ while (rs.next()){
 			<input type="submit" value="Edit">
 			</form></td>
 		</tr>
-		
 	<% 
 }
 %>

@@ -6,6 +6,7 @@ import java.sql.*;
 public class PaidController {
 
 	PreparedStatement preparedStmt;
+	Statement stmt;
 	Connection myConnection;
 	
 	public PaidController() throws SQLException, ClassNotFoundException{   
@@ -40,4 +41,14 @@ public class PaidController {
 	    System.out.println("***********************************************************************************");
 	    preparedStmt.close();
 	  }
+	
+	public ResultSet checkStatus() throws SQLException{
+	    //A string to hold the SQL statement....Notice the use of ? in prepared statements
+		String queryString = "SELECT INVOICE_NUM, CASE WHEN OUTSTANDING_BALANCE - AMOUNT_PAID > 0 THEN 'HUNT THEM DOWN' WHEN OUTSTANDING_BALANCE - AMOUNT_PAID = 0 THEN 'ALL GOOD' ELSE 'OVERPAID' END FROM TEAM09_PAID";
+				
+		   Statement stmt = myConnection.createStatement();
+		   ResultSet rs = stmt.executeQuery(queryString);
+		   return rs;
+	  }
+	
 }
