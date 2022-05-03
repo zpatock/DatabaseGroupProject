@@ -54,11 +54,13 @@ else {
 while (rs.next()){
 	%>
 	<tr>
+		<form method="POST" action="editService.jsp">
 		<input type ="hidden" name ="servNum" value = <%= rs.getString("service_num") %>>
 		<td><input type = "text"  name = "type" value="<%= rs.getString("service_type")%>"></td>
 		<td><input type = "text"  name = "rate" value="<%= rs.getString("default_rate")%>"></td>
 		<td><input type = "text"  name = "active" value="<%= rs.getString("active")%>"></td>
-		<td><a href="editService.jsp">Save</a></td>
+		<td><form action="editService.jsp">
+			<input type="submit" value="Save"></form></td>
 	</tr>
 	<%
 }

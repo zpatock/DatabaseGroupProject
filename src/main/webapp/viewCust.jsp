@@ -68,7 +68,8 @@ while (rs.next()){
 		<td><input type = "text"  name = "zip" value="<%= rs.getString("zip")%>"></td>
 		<td><input type = "text"  name = "phone" value="<%= rs.getString("phone_number")%>"></td>
 		<td><input type = "text"  name = "email" value="<%= rs.getString("email")%>"></td>
-		<td><a href="editCust.jsp">Save</a></td>
+		<td><form action="viewEditExpense.jsp">
+			<input type="submit" value="Save"></form></td>
 	</tr>
 	<%
 }
