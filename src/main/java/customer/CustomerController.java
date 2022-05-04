@@ -67,4 +67,28 @@ public class CustomerController {
 		   ResultSet rs = stmt.executeQuery(queryString);
 		   return rs;
 	   }
+		public void createCustomer(String last, String first, String company, String adr1, String adr2, String city,
+							   String state, String zip, String phone, String email) throws SQLException{
+		
+		String queryString = "INSERT into TEAM09.TEAM09_CUSTOMER values(customer_auto_incr.nextval,?,?,?,?,?,?,?,?,?,?)";
+
+		PreparedStatement preparedStmt = myConnection.prepareStatement(queryString);
+		
+		preparedStmt.setString(1, last);
+		preparedStmt.setString(2, first);
+		preparedStmt.setString(3, company);
+		preparedStmt.setString(4, adr1);
+		preparedStmt.setString(5, adr2);
+		preparedStmt.setString(6, city);
+		preparedStmt.setString(7, state);
+		preparedStmt.setString(8, zip);
+		preparedStmt.setString(9, phone);
+		preparedStmt.setString(10, email);
+
+
+		int returns = preparedStmt.executeUpdate();
+		System.out.println(queryString);
+		System.out.println("Rows affected " + returns);
+		preparedStmt.close();
+	}
 }
