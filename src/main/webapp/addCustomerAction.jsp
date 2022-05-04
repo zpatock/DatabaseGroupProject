@@ -6,7 +6,7 @@
 
 <%
     String last = request.getParameter("last");
-    String first = request.getParameter("first")
+    String first = request.getParameter("first");
     String company = request.getParameter("company");
     String addr1 = request.getParameter("addr1");
     String addr2 = request.getParameter("addr2");
