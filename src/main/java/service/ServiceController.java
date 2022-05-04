@@ -61,4 +61,23 @@ public class ServiceController {
 		   ResultSet rs = stmt.executeQuery(queryString);
 		   return rs;
 	   }
+		public void addService(String type, double rate, int active) throws SQLException{
+
+		String queryString = "INSERT into TEAM09.TEAM09_SERVICE values(invoice_auto_incr.nextval,?,?,?)";
+		//Create a prepared statement using the connection object...must specify an SQL string as an argument
+		preparedStmt = myConnection.prepareStatement(queryString);
+		//Clear all parameters
+		preparedStmt.clearParameters();
+
+		preparedStmt.setString(1, type);
+		preparedStmt.setDouble(2, rate);
+		preparedStmt.setInt(3, active);
+
+
+		int returns = preparedStmt.executeUpdate();
+		System.out.println(queryString);
+		System.out.println("Rows affected " + returns);
+		System.out.println("***********************************************************************************");
+		preparedStmt.close();
+	}
 }
